@@ -1,4 +1,4 @@
-# [CBC-Portal v1.0.0](#)
+# [Forkify App](#)
 
 Forkify App from JS2019 Course, powered by [javascript, node, express, mongodb, react, redux](#).
 
@@ -12,8 +12,8 @@ Forkify App from JS2019 Course, powered by [javascript, node, express, mongodb, 
 
 ```bash
 # Clone Repository
-git clone https://github.com/cbc-admin/CBC-Portal.git
-cd CBC-Portal
+git clone https://github.com/cwooz/Forkify-App-js2019.git
+cd Forkify App
 # Install server dependencies
 npm install
 # Install client dependencies
@@ -32,4 +32,4 @@ npm run build
 import { React, Redux, Node, Express, MongoDB } from 'dependencies';
 ```
 
-<img alt='Screen Shot' src="./client/public/readme_image.png" width="888">
+<img alt='Screen Shot' src="./dist/img/" width="888">
