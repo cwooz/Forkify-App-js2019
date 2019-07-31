@@ -1,0 +1,19 @@
+{
+  "name": "forkify-app_js2019",
+  "version": "1.0.0",
+  "description": "Forkify App from JS2019 Course, powered by [javascript, node, express, mongodb, react, redux](#).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwooz/Forkify-App-js2019.git"
+  },
+  "author": "wooz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwooz/Forkify-App-js2019/issues"
+  },
+  "homepage": "https://github.com/cwooz/Forkify-App-js2019#readme"
+}
