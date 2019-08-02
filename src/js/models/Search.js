@@ -16,7 +16,7 @@ export default class Search {
       // AJAX call w/ Axios, returns promise in json format
       const res = await axios(`https://www.food2fork.com/api/search?key=${key}&q=${this.query}`);
       this.result = res.data.recipes;      
-      // console.log(this.result);
+      console.log(this.result);
       
     } catch (error) {
       console.log(error);
