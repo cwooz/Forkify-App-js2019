@@ -33,6 +33,9 @@ const controlSearch = async () => {
 
     // 5) Render results in UI
     searchView.renderResults(state.search.result);
+    // if (state.search.result) {
+    //   searchView.renderResults(state.search.result);
+    // }
   }
 }
 
