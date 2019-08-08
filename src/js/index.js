@@ -14,7 +14,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
  * - Shopping list object
  * - Liked recipes
  */
-const state = {}
+const state = {};
 
 const controlSearch = async () => {
   // 1) Get query from view
@@ -36,7 +36,7 @@ const controlSearch = async () => {
     clearLoader();
     searchView.renderResults(state.search.result);
   }
-}
+};
 
 elements.searchForm.addEventListener('submit', e => {
   e.preventDefault();
