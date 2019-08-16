@@ -38,8 +38,22 @@ const controlSearch = async () => {
   }
 };
 
+// Fire on User Search Submit
 elements.searchForm.addEventListener('submit', e => {
   e.preventDefault();
   controlSearch();
+});
+
+// Fire on User Click a 'search results' pagination button
+elements.searchResPages.addEventListener('click', e => {
+  const btn = e.target.closest('.btn-inline');
+  // console.log(e.target);
+  // console.log(btn);
+    if (btn) {
+      const goToPage = parseInt(btn.dataset.goto, 10);
+      searchView.clearResults();
+      searchView.renderResults(state.search.result, goToPage);
+      // console.log(goToPage);
+    }
 });
 
