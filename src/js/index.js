@@ -18,7 +18,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
 const state = {};
 
 //
-// ----------- SEARCH CONTROLLER -------------------------------------- 
+// ----------- SEARCH CONTROLLER --------------------------------------------------------
 //
 const controlSearch = async () => {
   // 1) Get query from view
@@ -69,7 +69,7 @@ elements.searchResPages.addEventListener('click', e => {
 
 
 //
-// ----------- RECIPE CONTROLLER -------------------------------------- 
+// ----------- RECIPE CONTROLLER --------------------------------------------------------- 
 //
 
 const controlRecipe = async () => {
