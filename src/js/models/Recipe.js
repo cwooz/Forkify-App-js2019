@@ -35,8 +35,8 @@ export default class Recipe {
   }
 
   parseIngredients() {
-    const unitsLong = ['tablespoon', 'tablespoons', 'teaspoon', 'teaspoons', 'ounce', 'ounces', 'pound', 'pounds', 'cup'];
-    const unitsShort = ['tbsp', 'tbsp', 'tsp', 'tsp', 'oz', 'oz', 'lbs', 'lbs', 'cup'];
+    const unitsLong = ['tablespoons', 'tablespoon', 'teaspoons', 'teaspoon', 'ounces', 'ounce', 'pounds', 'cup'];
+    const unitsShort = ['tbsp', 'tbsp', 'tsp', 'tsp', 'oz', 'oz', 'pound', 'cup'];
 
     const newIngredients = this.ingredients.map(el => {
       // 1) Uniform units
@@ -46,12 +46,51 @@ export default class Recipe {
         ingredient = ingredient.replace(unit, unitsShort[i]);
       });
 
-      // 2) Remove parentheses
+      // 2) Remove parentheses: https://stackoverflow.com/questions/4292468/javascript-regex-remove-text-between-parentheses
       ingredient = ingredient.replace(/ *\([^)]*\) */g, '');
 
       // 3) Parse ingredients into count, unit and ingredient
-      return ingredient;
+      const arrIng = ingredient.split(' ');
+      const unitIndex = arrIng.findIndex(el2 => unitsShort.includes(el2));
 
+      let objIng;
+      if (unitIndex > -1) {
+        // There is a unit
+        // Ex. 4 1/2 cups, arrCount is [4, 1/2]  --> eval("4+1/2") = 4.5
+
+        const arrCount = arrIng.slice(0, unitIndex);
+
+        let count;
+        if (arrCount.length === 1) {
+          count = eval(arrIng[0].replace('-', '+'));
+        } else {
+          count = eval(arrIng.slice(0, unitIndex).join('+'));
+        }
+
+          objIng = {
+            count: count,
+            unit: arrIng[unitIndex],
+            ingredient: arrIng.slice(unitIndex + 1).join(' ')
+          }
+        
+      } else if (parseInt(arrIng[0], 10)) {
+        // There is NO unit, but the 1st element is a number
+        objIng = {
+          count: parseInt(arrIng[0], 10),
+          unit: '',
+          ingredients: arrIng.slice(1).join(' ')
+        }
+
+      } else if (unitIndex === -1) {
+        // There is No unit and No number in the 1st position
+        objIng = {
+            count: 1,
+            unit: '',
+            ingredient: ingredient
+        }
+      }
+
+      return ingredient;
     });
 
     this.ingredients = newIngredients;
