@@ -33,12 +33,18 @@ const controlSearch = async () => {
     searchView.clearResults();
     renderLoader(elements.searchRes);
 
-    // 4) Search for recipes
-    await state.search.getResults();
+    try {
+      // 4) Get search Data (search for recipes)
+      await state.search.getResults();
 
-    // 5) Render results in UI
-    clearLoader();
-    searchView.renderResults(state.search.result);
+      // 5) Render results in UI
+      clearLoader();
+      searchView.renderResults(state.search.result);
+
+    } catch (error) {
+      alert('Something went wrong with the search...');
+      clearLoader();
+    }
   }
 };
 
@@ -48,7 +54,7 @@ elements.searchForm.addEventListener('submit', e => {
   controlSearch();
 });
 
-// Fire on User Click a 'search results' pagination button
+// Fire on User Click a pagination button
 elements.searchResPages.addEventListener('click', e => {
   const btn = e.target.closest('.btn-inline');
   // console.log(e.target);
@@ -65,6 +71,40 @@ elements.searchResPages.addEventListener('click', e => {
 //
 // ----------- RECIPE CONTROLLER -------------------------------------- 
 //
-const r = new Recipe(46956);
-r.getRecipe();
-console.log(r);
+
+const controlRecipe = async () => {
+  // Get ID from the URL
+  const id = window.location.hash.replace('#', '');
+  console.log(id);
+
+  if (id) {
+    // Prepare UI for changes
+
+    // Create new recipe object
+    state.recipe = new Recipe(id);
+
+    try {
+      // Get recipe data
+      await state.recipe.getRecipe();
+
+      // Call calcTime & calcServings functions
+      state.recipe.calcTime();
+      state.recipe.calcServings();
+
+      // Render recipe
+      console.log(state.recipe);
+
+    } catch (error) {
+        alert('Error processing recipe!')
+    }
+  }
+};
+
+// -----------------------------------------------------
+// window.addEventListener('hashchange', controlRecipe); 
+// window.addEventListener('load', controlRecipe);
+
+// *Re-Factor*  Add the same event listener from above to multiple events
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
+// -----------------------------------------------------------------------------------
+
