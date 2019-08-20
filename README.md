@@ -1,4 +1,4 @@
-# [Forkify App](#) 👍
+# [Forkify App](#) 🍜
 
 Forkify App from JS2019 Course, powered by [javascript, node, express, mongodb, react, redux](#).
 
