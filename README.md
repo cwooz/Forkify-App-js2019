@@ -32,4 +32,4 @@ npm run build
 import { React, Redux, Node, Express, MongoDB } from 'dependencies';
 ```
 
-<img alt='Screen Shot' src="./dist/img/" width="888">
+<img alt='Screen Shot' src="./dist/img/screenShot.png" width="888">
