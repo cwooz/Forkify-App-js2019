@@ -3,8 +3,9 @@
 // api_key = e7ad8e1dcb4babf119f92615c3d9faf1
 
 
-import Search from "./models/Search";
-import Recipe from "./models/Recipe";
+import Search from './models/Search';
+import Recipe from './models/Recipe';
+import List from './models/List';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import { elements, renderLoader, clearLoader } from './views/base';
@@ -94,7 +95,7 @@ const controlRecipe = async () => {
     try {
       // Get recipe data & parse ingredients
       await state.recipe.getRecipe();
-      console.log(state.recipe.ingredients);
+      // console.log(state.recipe.ingredients);
       state.recipe.parseIngredients();
 
       // Call calcTime & calcServings functions
@@ -133,10 +134,14 @@ elements.recipe.addEventListener('click', e => {
       recipeView.updateServingsIngredients(state.recipe);
   }
 
-  console.log(state.recipe);
+  // console.log(state.recipe);
 });
-
-
 
 // -----------------------------------------------------------------------------------
 
+
+//
+// ----------- RECIPE CONTROLLER --------------------------------------------------------- 
+//
+
+window.l = new List();
