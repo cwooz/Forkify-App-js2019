@@ -1,6 +1,6 @@
 # [Forkify App](#) 🍜
 
-Forkify App from JS2019 Course, powered by [javascript, node, express, mongodb, react, redux](#).
+Forkify App from JS2019 Course, powered by [javascript, css, node](#).
 
 ##### Try version `1.0.0-beta` using the following [link](#). Thanks!
 
@@ -16,20 +16,18 @@ git clone https://github.com/cwooz/Forkify-App-js2019.git
 cd Forkify App
 # Install server dependencies
 npm install
-# Install client dependencies
-cd client
-npm install
-# Run both Express & React from root
+# Start the application
+npm run start
+# Run in development
 npm run dev
 # Build for production
-cd client
 npm run build
 ```
 
 ## Built Using
 
 ```javascript
-import { React, Redux, Node, Express, MongoDB } from 'dependencies';
+import { JavaScript, Node, Express, MongoDB } from 'dependencies';
 ```
 
 <img alt='Screen Shot' src="./dist/img/screenShot.png" width="888">
