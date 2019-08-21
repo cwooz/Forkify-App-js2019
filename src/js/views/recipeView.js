@@ -8,7 +8,9 @@ export const clearRecipe = () => {
 
 const formatCount = count => {
   if (count) {
-    return `${fracty(count)}`;
+    // *ATEMPT FIX* un-finished
+    const newCount = Math.round(count * 10000) / 10000;
+    return `${fracty(newCount)}`;
   }
   return '?';
 };
