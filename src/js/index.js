@@ -23,6 +23,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
 const state = {};
 window.state = state;
 
+
 //
 // ----------- SEARCH CONTROLLER --------------------------------------------------------
 //
@@ -75,7 +76,6 @@ elements.searchResPages.addEventListener('click', e => {
 //
 // ----------- RECIPE CONTROLLER --------------------------------------------------------- 
 //
-
 const controlRecipe = async () => {
   // Get ID from the URL
   const id = window.location.hash.replace('#', '');
@@ -124,7 +124,6 @@ const controlRecipe = async () => {
 //
 // ----------- LIST CONTROLLER --------------------------------------------------------- 
 //
-
 const controlList = () => {
   // Create a new list IF there is none yet
   if (!state.list) state.list = new List();
@@ -140,13 +139,6 @@ const controlList = () => {
 //
 // ----------- LIKES CONTROLLER --------------------------------------------------------- 
 //
-
-
-// TESTING!!
-state.likes = new Likes();
-likesView.toggleLikeMenu(state.likes.getNumLikes());
-
-
 const controlLike = () => {
   if (!state.likes) state.likes = new Likes();
   const currentID = state.recipe.id;
@@ -182,8 +174,6 @@ const controlLike = () => {
 
   likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
-
-
 // ----------- END CONTROLLERS --------------------------------------------------------------------------
 
 
@@ -253,8 +243,4 @@ window.addEventListener('load', () => {
   state.likes.likes.forEach(like => likesView.renderLike(like));
 });
 
-
 // ----------------------------------------------------------------------
-
-// TESTING!!
-window.l = new List();

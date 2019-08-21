@@ -35,7 +35,7 @@ export default class Likes {
   }
 
   readStorage() {
-    // Read from localStorage & Convert String back to an Array
+    // Read from localStorage & Parse String back into an Array
     const storage = JSON.parse(localStorage.getItem('likes'));
 
     // Resotring LIKES from the localStorage
