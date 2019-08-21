@@ -63,13 +63,11 @@ elements.searchForm.addEventListener('submit', e => {
 // Fire on User Click a pagination button
 elements.searchResPages.addEventListener('click', e => {
   const btn = e.target.closest('.btn-inline');
-  // console.log(e.target);
-  // console.log(btn);
+
     if (btn) {
       const goToPage = parseInt(btn.dataset.goto, 10);
       searchView.clearResults();
       searchView.renderResults(state.search.result, goToPage);
-      // console.log(goToPage);
     }
 });
 
@@ -166,7 +164,7 @@ const controlLike = () => {
     likesView.toggleLikeBtn(true);
 
     // Add like to UI list
-    console.log(state.likes);
+    likesView.renderLike(newLike);
     
   // 2# User HAS Liked current recipe
   } else {
@@ -177,7 +175,7 @@ const controlLike = () => {
     likesView.toggleLikeBtn(false);
 
     // Remove like from UI list
-    console.log(state.likes);
+    likesView.deleteLike(currentID);
 
   }
 
